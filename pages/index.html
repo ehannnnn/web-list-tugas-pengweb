@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Pengumpulan Tugas — Pengembangan Web</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheet lokal -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <div>
+                <h1>Portal Pengumpulan Tugas</h1>
+                <p class="muted">Mata Kuliah: <strong>Pengembangan Web</strong></p>
+            </div>
+            <div class="header-actions">
+                <span id="taskCount" class="task-count">0 Tugas</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container main-grid">
+
+        <!-- Form pengumpulan tugas -->
+        <section class="card form-card">
+            <h2>Tambah Tugas</h2>
+            <p class="muted">Masukkan data tugas Anda.</p>
+
+            <form id="taskForm">
+
+                <!-- Nama mahasiswa (wajib) -->
+                <label class="field">
+                    <span>Nama Mahasiswa</span>
+                    <input id="studentName" type="text" placeholder="Nama lengkap" required>
+                </label>
+
+                <!-- Judul tugas (wajib) -->
+                <label class="field">
+                    <span>Judul Tugas</span>
+                    <input id="title" type="text" placeholder="Contoh: Tugas 1 - CRUD" required>
+                </label>
+
+                <!-- Deskripsi singkat -->
+                <label class="field">
+                    <span>Deskripsi</span>
+                    <textarea id="description" rows="4" placeholder="Ringkasan atau catatan singkat" required></textarea>
+                </label>
+
+                <!-- Link file tugas (opsional jika mengunggah file langsung) -->
+                <label class="field">
+                    <span>Link File / Google Drive</span>
+                    <input id="fileLink" type="url" placeholder="https://drive.google.com/...">
+                </label>
+
+                <!-- Unggah file langsung (opsional) -->
+                <label class="field">
+                    <span>Unggah File</span>
+                    <input id="fileUpload" type="file" accept="*/*">
+                </label>
+
+                <!-- Hidden: nama mata kuliah tetap (tidak bisa diubah) -->
+                <input type="hidden" id="course" value="Pemrograman Web">
+
+                <div class="form-actions">
+                    <button type="submit" class="btn primary"><i class="fa-solid fa-folder-plus"></i> Simpan Tugas</button>
+                    <button type="button" id="clearAll" class="btn subtle"><i class="fa-solid fa-trash-can"></i> Hapus Semua</button>
+                </div>
+
+            </form>
+        </section>
+
+        <!-- Daftar tugas -->
+        <section class="card list-card">
+            <h2>Riwayat Tugas</h2>
+            <p class="muted">Tugas yang sudah dikumpulkan akan disimpan disini.</p>
+
+            <div id="taskList" class="task-list">
+                <!-- JavaScript akan memasukkan kartu tugas di sini -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Script lokal -->
+    <script src="/js/main.js"></script>
+</body>
+</html>
