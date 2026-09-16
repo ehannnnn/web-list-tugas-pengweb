@@ -33,6 +33,10 @@ body {
   flex-direction: column;
 }
 
+section {
+  scroll-margin-top: 90px;
+}
+
 /* Header & Navigasi */
 .site-header {
   position: sticky;
