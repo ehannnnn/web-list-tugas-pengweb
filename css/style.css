@@ -1,103 +1,225 @@
 /* =================================================
-   STYLE UNTUK PORTAL PENGUMPULAN TUGAS
-   File ini menata tampilan form dan daftar tugas.
+   STYLE UNTUK PORTAL TUGAS (Serasi dengan backup.css)
 ================================================= */
 
-/* Font dan dasar */
-:root{
-    --bg: #f6f8fb;
-    --card: #ffffff;
-    --accent: #2563eb;
-    --muted: #6b7280;
-    --radius: 12px;
+/* Variabel Warna & Tema */
+:root {
+  --bg-color: #0f172a;
+  --surface-color: #1e293b;
+  --surface-card: #26334d;
+  --primary: #38bdf8;
+  --primary-hover: #0ea5e9;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+  --radius: 12px;
+  --transition: all 0.3s ease;
 }
 
-/* Reset dasar dan box-sizing */
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%}
-body{
-    font-family: 'Poppins', Arial, sans-serif;
-    background:var(--bg);
-    color:#0f172a;
-    -webkit-font-smoothing:antialiased;
+/* Reset Dasar */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.container{
-    width:92%;
-    max-width:1100px;
-    margin:0 auto;
+html {
+  scroll-behavior: smooth;
 }
 
-/* Header */
-.site-header{
-    background:linear-gradient(90deg,#0f172a 0%, #111827 100%);
-    color:#fff;
-    padding:28px 0;
-}
-.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.site-header h1{font-size:1.4rem;margin-bottom:4px}
-.muted{color:var(--muted)}
-.task-count{background:#0b1220; padding:6px 12px;border-radius:999px;font-weight:600}
-
-/* Grid utama: form + daftar */
-/* Grid utama: form + daftar
-    Gunakan alur normal dokumen sehingga halaman dapat menggulir
-    jika diperlukan. Jangan potong konten. */
-.main-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:36px 0}
-
-.card{background:var(--card);padding:20px;border-radius:var(--radius);box-shadow:0 8px 30px rgba(15,23,42,0.06)}
-.form-card h2,.list-card h2{margin-bottom:6px}
-.form-card p{margin-bottom:12px}
-
-/* Form fields */
-.field{display:block;margin-bottom:12px}
-.field span{display:block;margin-bottom:6px;font-weight:600}
-.field input[type="text"],
-.field input[type="url"],
-.field textarea{
-    width:100%;padding:10px 12px;border:1px solid #e6eefc;border-radius:10px;font-size:0.95rem;outline:none;transition:box-shadow 0.15s,border-color 0.15s
-}
-.field input:focus,.field textarea:focus{box-shadow:0 6px 18px rgba(37,99,235,0.06);border-color:var(--accent)}
-.form-actions{display:flex;gap:10px;margin-top:8px}
-.btn{padding:10px 14px;border-radius:10px;cursor:pointer;border:0;font-weight:600}
-.btn.primary{background:var(--accent);color:#fff}
-.btn.subtle{background:#f3f4f6;color:#111827;border:1px solid #e6eefc}
-
-/* Daftar tugas: grid kartu */
-.task-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:12px}
-.task-item{border-radius:10px;padding:14px;background:linear-gradient(180deg,rgba(245,247,250,1),#fff);border:1px solid #eef2ff;position:relative;overflow:hidden}
-.task-item h3{font-size:1rem;margin-bottom:6px}
-.task-title{font-size:1.05rem;margin:0 0 6px 0;color:#0f172a;font-weight:700}
-.task-student{font-size:0.9rem;color:#334155;margin-bottom:6px}
-.task-time{font-size:0.85rem;color:var(--muted);margin-bottom:10px}
-.task-desc{font-size:0.95rem;color:#374151;margin-bottom:12px;line-height:1.4}
-.task-meta{font-size:0.8rem;color:#475569;margin-bottom:8px}
-.task-link{display:inline-block;color:var(--accent);font-weight:700;text-decoration:none}
-.task-actions{position:absolute;top:8px;right:8px;display:flex;gap:8px}
-.icon-btn{background:transparent;border:0;color:#64748b;padding:6px;border-radius:8px;cursor:pointer}
-.icon-btn:hover{background:rgba(37,99,235,0.06);color:var(--accent)}
-
-/* Improve appearance of the link */
-.task-link{padding:8px 12px;border-radius:8px;background:rgba(37,99,235,0.06);display:inline-block}
-.task-link:hover{text-decoration:none;background:rgba(37,99,235,0.12)}
-
-/* Empty state */
-.empty{padding:36px;text-align:center;color:var(--muted);border:2px dashed #e6eefc;border-radius:10px}
-
-/* Perbaikan header agar menempel ke atas tanpa celah */
-.site-header{padding:32px 0}
-
-/* Responsive */
-@media (max-width:900px){
-    .main-grid{grid-template-columns:1fr;padding:20px 0}
-    .task-list{grid-auto-rows:auto}
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Responsive */
-@media (max-width:900px){.main-grid{grid-template-columns:1fr}}
+/* Header & Navigasi */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+}
 
-/* Penjelasan singkat (tidak terlihat oleh user, hanya untuk developer) */
-/*
-  - File ini menata tampilan aplikasi: layout grid, form, kartu tugas.
-  - Gunakan warna dan bayangan halus untuk tampilan modern namun sederhana.
-*/
+.navbar {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--primary);
+}
+
+.nav-brand h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+/* Main Content Layout */
+.main-content {
+  max-width: 900px;
+  width: 100%;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+  flex: 1;
+}
+
+/* Card Section */
+.card-section {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.section-header {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.section-header p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
+
+/* Task List Grid */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.task-item {
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.25rem;
+  transition: var(--transition);
+}
+
+.task-item:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.task-header-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
+}
+
+.task-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.task-desc {
+  font-size: 0.95rem;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.task-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-color);
+  padding-top: 0.8rem;
+  font-size: 0.85rem;
+}
+
+.task-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: var(--transition);
+}
+
+.task-link:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--surface-color);
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .task-header-info {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  
+  .task-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+}

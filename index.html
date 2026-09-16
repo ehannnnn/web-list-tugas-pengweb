@@ -3,94 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Pengumpulan Tugas — Pengembangan Aplikasi Web</title>
+    <title>Portal Tugas - Pengembangan Aplikasi Web</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Portal pengumpulan dan riwayat tugas mata kuliah Pengembangan Aplikasi Web oleh Raihan Dwiyuga Fadilah.">
+    <meta property="og:title" content="Portal Tugas - Pengembangan Aplikasi Web">
+    <meta property="og:description" content="Portal pengumpulan dan riwayat tugas mata kuliah Pengembangan Aplikasi Web oleh Raihan Dwiyuga Fadilah.">
+    <meta property="og:type" content="website">
 
-    <!-- Font Awesome untuk ikon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Stylesheet lokal -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <header class="site-header">
-        <div class="container header-inner">
-            <div>
-                <h1>Portal Pengumpulan Tugas</h1>
-                <p class="muted">Mata Kuliah: <strong>Pengembangan Aplikasi Web</strong></p>
-            </div>
-            <div class="header-actions">
-                <span id="taskCount" class="task-count">0 Tugas</span>
-            </div>
-        </div>
-    </header>
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <a href="index.html" style="text-decoration: none; color: inherit;">
+          <h2>Portofolio</h2>
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Tentang</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main class="container main-grid">
+  <main class="main-content">
+    <section class="card-section">
+      <header class="section-header">
+        <h2>Riwayat & Daftar Tugas</h2>
+        <p>Mata Kuliah Pengembangan Aplikasi Web</p>
+      </header>
 
-        <!-- Form pengumpulan tugas -->
-        <section class="card form-card">
-            <h2>Tambah Tugas</h2>
-            <p class="muted">Masukkan data tugas Anda.</p>
+      <div class="task-list">
+        
+        <article class="task-item">
+          <div class="task-header-info">
+            <h3 class="task-title">Tugas 1 - Membuat Halaman Profil Diri dengan HTML5</h3>
+          </div>
+          <p class="task-desc">Buat 1 halaman profil diri menggunakan HTML5.</p>
+          <footer class="task-footer">
+            <a href="profile.html" target="_blank" rel="noopener noreferrer" class="task-link">
+              <i class="fa-solid fa-link"></i> Lihat File
+            </a>
+          </footer>
+        </article>
 
-            <form id="taskForm">
+      </div>
+    </section>
+  </main>
 
-                <!-- Nama mahasiswa (wajib) -->
-                <label class="field">
-                    <span>Nama Mahasiswa</span>
-                    <input id="studentName" type="text" placeholder="Nama lengkap" required>
-                </label>
-
-                <!-- Judul tugas (wajib) -->
-                <label class="field">
-                    <span>Judul Tugas</span>
-                    <input id="title" type="text" placeholder="Contoh: Tugas 1 - CRUD" required>
-                </label>
-
-                <!-- Deskripsi singkat -->
-                <label class="field">
-                    <span>Deskripsi</span>
-                    <textarea id="description" rows="4" placeholder="Ringkasan atau catatan singkat" required></textarea>
-                </label>
-
-                <!-- Link file tugas (opsional jika mengunggah file langsung) -->
-                <label class="field">
-                    <span>Link File / Google Drive</span>
-                    <input id="fileLink" type="url" placeholder="https://drive.google.com/...">
-                </label>
-
-                <!-- Unggah file langsung (opsional) -->
-                <label class="field">
-                    <span>Unggah File</span>
-                    <input id="fileUpload" type="file" accept="*/*">
-                </label>
-
-                <!-- Hidden: nama mata kuliah tetap (tidak bisa diubah) -->
-                <input type="hidden" id="course" value="Pemrograman Web">
-
-                <div class="form-actions">
-                    <button type="submit" class="btn primary"><i class="fa-solid fa-folder-plus"></i> Simpan Tugas</button>
-                    <button type="button" id="clearAll" class="btn subtle"><i class="fa-solid fa-trash-can"></i> Hapus Semua</button>
-                </div>
-
-            </form>
-        </section>
-
-        <!-- Daftar tugas -->
-        <section class="card list-card">
-            <h2>Riwayat Tugas</h2>
-            <p class="muted">Tugas yang sudah dikumpulkan akan disimpan disini.</p>
-
-            <div id="taskList" class="task-list">
-                <!-- JavaScript akan memasukkan kartu tugas di sini -->
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Script lokal -->
-    <script src="js/main.js"></script>
+  <footer class="site-footer">
+    <p>&copy; 2026 Raihan Dwiyuga Fadilah. All rights reserved.</p>
+  </footer>
 </body>
 </html>
