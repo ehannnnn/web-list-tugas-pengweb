@@ -207,7 +207,6 @@ section {
   width: 120px;
   font-size: 0.9rem;
   color: var(--text-muted);
-  text-transform: lowercase;
   font-weight: 500;
 }
 
